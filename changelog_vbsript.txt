@@ -1,0 +1,23 @@
+21.08.2012
+
+Added errors 7-9
+
+20.08.2012
+
+Version 1.02
+
+Changed absolute path to wsbatch..cmdtools
+
+06.08.2012
+
+Version 1.01
+
+Added two errorlevels (5+6) to scriptexits
+Set visual to 1 (...&printername, 1, True)
+Changed use of script (start script in same folder)
+
+02.05.2012
+
+Version 1.00
+
+initial release

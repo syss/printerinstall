@@ -1,0 +1,267 @@
+11.02.2013
+
+Version 1.28
+
+new Lexmark drivers for Win 7 x64 (nothing changed in script)
+
+18.01.2013
+
+Version 1.27
+
+Applying company Settings to all printers
+Changed 7z from aos to aoa (overwrite)
+
+17.01.2013
+
+Version 1.26
+
+Added Postinstallation
+Added Company settings
+
+03.12.2012
+
+Version 1.25
+
+Better support for Namelookup
+
+17.10.2012
+
+Version 1.24
+
+Set source and destination under "" for comparison because spaces made problems? (not true)
+Set source back from %~dp0.. to \\server because script can be started from anywhere and script and
+driver are only on the server
+
+12.10.2012
+
+Version 1.23 - DEFECT! see changelog 1.24
+
+Changed Primary source to %0dp.. (1 level up from workingdir)
+created a deploy-to-svnldas1 script. (wsbatch01 is deprecated)
+
+28.09.2012
+
+Version 1.22
+
+Added HP Officejet Pro K8600 Model
+Added NSlookup for IP Addresses
+
+13.09.2012
+
+Version 1.21
+
+Added Intermec Drivers
+Added PD41+42 Model
+Added Printername Prod - Set location manually (NL)
+
+11.09.2012
+
+Version 1.20
+
+removed unnecessary :waitloop
+removed :waitif... comment
+removed redundancy in ExtractDrivers
+removed :spinner for Script check
+corrected binary map behavior
+
+
+10.09.2012
+
+Version 1.19
+
+Added verbose mode (-v) in Checkversion
+Split complete archive in scripts archive and drivers archive
+copy drivers in background, wait for drivers
+added spinner while wait for drivers
+added /G /K attributes to xcopy (delete attributes: write protected. also copy from encrypted source to uncrypted destination)
+erase files before xcopy to avoid "Ungültiger Share zugriff"
+
+06.09.2012
+
+Version 1.18
+
+Put Version back to top
+Added kyo general drivers
+Added kyo FS3920DN drivers
+Added skip extraction on existing files (-aos) eventually overwriting all files will be better (-aoa)
+
+
+21.08.2012
+
+Version 1.17
+
+added a deploy to wsbatch01 script
+
+exported variables to :VARIABLES
+exported functions to functions within printer.cmd
+moved unused functions to variables at the end
+removed variable %count%: unused
+Changed message if printerdriver was not found
+added goto error0 if succeeded
+changed "type of drivers" to "Name of Drivers"
+added alternative printerfqdn if printerfqdn was not defined
+
+20.08.2012
+
+Version 1.16
+
+nulled output of snmpget (^^^> double escape for 1. set and 2. call in for '')
+corrected admin check for xp (missing bracket)
+removed manual driver choose if driver was not found (/W)
+added /q to be silent
+log files to %temp%\printer.%version%.log
+added error9: printer driver not found
+added prnmngr for check if printer was added
+
+16.08.2012
+
+Version 1.15
+
+removed alternative cscript and prnport.
+set sources to %dest% (was %source%)
+admin check for windows xp
+error8 added
+added ip check
+added cls for call from unc path
+
+13.08.2012
+
+Version 1.14
+
+changed prio to PS>PCL
+
+13.08.2012
+
+Version 1.13
+
+Added Lexmark PS Drivers
+Added 2nd parameter for PCL or PS (%emulvl%)
+Lexmarkdrivers are on top of other drivers
+Added binary map for lexmarkdriver (x64-x86 or pcl-ps) %lexmap%
+
+07.08.2012
+
+Version 1.12
+
+Empirum Server changed variable,but not used yet
+Deleting Port before add
+nuled dir *.version
+remed deleting of precached files
+writing own version file
+delete old version files
+
+06.08.2012
+
+Version 1.11
+
+Changed MFG and PLOT recognizing to if /I (ignore lower/uppercase)
+
+02.08.2012
+
+Version 1.10
+
+Version file
+Source and destination behaviour altered
+copy 7z pack instead of accessing files directly
+added printerfqdn
+
+
+30.07.2012
+
+Version 1.09
+
+Use Lexmark Universal Driver for all printers
+removed check for PSMFGWIEN13 - Is now Lexmark
+Added x64-x86 check for Lexmark
+
+30.07.2012
+
+Version 1.08
+
+Added String "Lexmark X950" for Lexmark X950 (has also Lexmark Universal Fax)
+Lexmark 360dn does not work - use of Universal Driver in Version 1.09
+
+31.05.2012
+
+Version 1.07
+
+set serialnumbercheck in comment (not needed)
+Added Lexmark T650,2,4,6, TG654
+Added Lexmark X950DE (FAX)
+
+30.05.2012
+
+Version 1.06
+
+Added Printer PSMFGNL13 to top of Printername checks to avoid SNMP errors.
+REMed "KYOCERA MITA Printing System" because it was too unspecific.
+Added TA LP3416_4416
+Added Lexmark C734,6
+Added Lexmark E360d,(n)
+
+
+02.05.2012
+
+Version 1.05
+
+Added exit codes
+removed pause from exit codes
+added possibillity to give printername as first parameter
+added VBS for Textboxes see custom changelog
+
+27.04.2012
+
+Version 1.04
+
+Delete all (Printer) drivers in %TEMP% before install to avoid user interaction (if given)
+needs a for loop because 'rmdir %temp%\{*-*-*-*-*} /s /q' does not make it
+added: catch if there was no folder
+changed entries for x86 and x64 in the estudio.inf to
+	estudiox86.inf and estudiox64.inf
+copyed estudio.inf to estudiox86.inf and estudiox64.inf
+this is to avoid the same file to be copyed into one directory and to prompt user
+
+
+13.04.2012
+
+Version 1.03
+
+Added mibsdir
+Added default parameters to snmpget
+
+12.04.2012
+
+Version 1.02
+
+Changed Printercheck from Check_by_Serialnumber to Check_by_Systemdescription
+Added alternative check for LP3033 and 4033 Printers
+Added X73xde printers (+driver)
+Added Sharp MX 3501N (PSMFGWIEN13+driver)
+Added titlechange after Printername input
+Added localsource if available
+Changed Error3 Message (printer was not found)
+remove pause after successful finish
+
+06.04.2012
+
+Version 1.01
+
+added Version number
+Optimized Serialnumber check by saving the snmp output to a variable instead of calling it X-times
+Error3: Changed to ...+ (Connection timed out)
+If no Printertype was found: Usermessage, to search manually
+Optimized method to check if printer is online (1. one packet, 2. 3 packets, 3. goto error)
+added a >nul for pause after "done"
+Type check before driver check
+added Lexmark Printer Driver (MS) x654de + x544
+removed check by name (PSNLxx or PSMFGNLxx)
+Changed title
+Removed /u: Use Driver if it is present on the System
+Removed a logic bug: && set type=%prtkyo%& set drv=%prtdrv% == (cmd && set type=...) & .... instead of cmd && (set type=... & ....)
+--> cmd && set type=... && .... is correct
+
+03.04.2012
+
+Version 1.00
+
+Initial Release
